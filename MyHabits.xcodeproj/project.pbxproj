@@ -14,7 +14,6 @@
 		8D86ED2C2852688C00ED4B7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D86ED2B2852688C00ED4B7D /* ViewController.swift */; };
 		8D86ED312852688C00ED4B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D86ED302852688C00ED4B7D /* Assets.xcassets */; };
 		8D86ED342852688C00ED4B7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D86ED322852688C00ED4B7D /* LaunchScreen.storyboard */; };
-		8D86ED4128527F9E00ED4B7D /* ImageForSpecificDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D86ED4028527F9E00ED4B7D /* ImageForSpecificDevice.swift */; };
 		8D8B05C428539140003EBDCF /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D8B05C328539140003EBDCF /* SF-Pro-Display-Semibold.otf */; };
 		8D8B05C628539321003EBDCF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D8B05C528539321003EBDCF /* Colors.xcassets */; };
 		8D8B05C828539476003EBDCF /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D8B05C728539476003EBDCF /* SF-Pro-Text-Regular.otf */; };
@@ -39,7 +38,6 @@
 		8D86ED302852688C00ED4B7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D86ED332852688C00ED4B7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D86ED352852688C00ED4B7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8D86ED4028527F9E00ED4B7D /* ImageForSpecificDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageForSpecificDevice.swift; sourceTree = "<group>"; };
 		8D8B05C328539140003EBDCF /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
 		8D8B05C528539321003EBDCF /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		8D8B05C728539476003EBDCF /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Text-Regular.otf"; path = "../../../../../../Library/Fonts/SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 				8D428CCA2868C52F00BB2843 /* Habits */,
 				8D8B05D42853F097003EBDCF /* Data */,
 				8D8B05C02853909A003EBDCF /* Fonts */,
-				8D86ED3D28527E5B00ED4B7D /* Device */,
 				8D86ED272852688C00ED4B7D /* AppDelegate.swift */,
 				8D86ED292852688C00ED4B7D /* SceneDelegate.swift */,
 				8D86ED2B2852688C00ED4B7D /* ViewController.swift */,
@@ -120,14 +117,6 @@
 				8D8B05CB285397E5003EBDCF /* HabitsStore.swift */,
 			);
 			path = MyHabits;
-			sourceTree = "<group>";
-		};
-		8D86ED3D28527E5B00ED4B7D /* Device */ = {
-			isa = PBXGroup;
-			children = (
-				8D86ED4028527F9E00ED4B7D /* ImageForSpecificDevice.swift */,
-			);
-			path = Device;
 			sourceTree = "<group>";
 		};
 		8D8B05C02853909A003EBDCF /* Fonts */ = {
@@ -239,7 +228,6 @@
 				8D86ED2C2852688C00ED4B7D /* ViewController.swift in Sources */,
 				8D86ED282852688C00ED4B7D /* AppDelegate.swift in Sources */,
 				8DA696682863C3C600B2AC89 /* HabitDetailsTableViewCell.swift in Sources */,
-				8D86ED4128527F9E00ED4B7D /* ImageForSpecificDevice.swift in Sources */,
 				8D8B05D028539CD2003EBDCF /* InfoViewController.swift in Sources */,
 				8DA696662863B53800B2AC89 /* HabitDetailsViewController.swift in Sources */,
 				8D31BCC1285E77A900F395D2 /* HabitCollectionViewCell.swift in Sources */,
