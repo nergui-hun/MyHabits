@@ -10,15 +10,8 @@ import UIKit
 
 class HabitDetailsViewController: UIViewController {
 
-    //=============================PROPERTIES=================================//
-    /*
-     1. var dataSource: [Date] = []
-     2. var habitID: Int = -1
-     3. private let datesLabel: UILabel
-     4. private lazy var tableView: UITableView
-     5. private let contentView: UIView
-     6. private lazy var editButton: UIBarButtonItem
-     */
+    // MARK: - Properties
+    
     var dataSource: [Date] = []
     var habitID: Int = -1
 
@@ -77,21 +70,12 @@ class HabitDetailsViewController: UIViewController {
     } ()
 
 
-    //===============================METHODS==================================//
-    /*
-     1. override func viewDidLoad()
-     2. override func viewWillAppear(_ animated: Bool)
-     3. private func setupView()
-     4. private func addElements()
-     5. private func setConstraints()
-     6. private func setupNavBar()
-     7. @objc func editHabit()
-     */
+    // MARK: - Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         dataSource = self.fetchData()
-        
     }
 
 
@@ -143,19 +127,17 @@ class HabitDetailsViewController: UIViewController {
 
 
     @objc func editHabit() {
-        let habit = HabitsStore.shared.habits[habitID]
         let habitViewController = HabitViewController()
         self.navigationController?.pushViewController(habitViewController, animated: true)
-
         habitViewController.habitID = habitID
-        habitViewController.editHabit(name: habit.name, color: habit.color, date: habit.date)
         habitViewController.title = "Править"
     }
 
 }
 
 
-//================================EXTENSIONS==================================//
+// MARK: - Extensions
+
 extension HabitDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

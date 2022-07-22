@@ -10,24 +10,23 @@ import UIKit
 
 class HabitViewController: UIViewController {
 
-    //=============================PROPERTIES=================================//
-    /*
-     1. private let saveButton: UIBarButtonItem
-     2. private let habitNameLabel: UILabel
-     3. private let habitNameTextField: UITextField
-     4. private let habitColorLabel: UILabel
-     5. private lazy var habitColorButton: UIButton
-     6. private let habitTimeLabel: UILabel
-     7. private let timeLabel: UILabel
-     8. private let timePicker: UIDatePicker
-     9. private let contentView: UIView
-     10. let elementSize: CGFloat
-     11. private let dateFormatter: DateFormatter()
-     */
+    // MARK: - Variables
 
     private let habitsViewController = HabitsViewController()
     var isNew: Bool = true
     var habitID: Int = -1
+    let elementSize: CGFloat = 30
+
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ru-RU")
+        formatter.timeStyle = .short
+        return formatter
+    } ()
+
+    private lazy var timeString: String = "Каждый день в \(timePicker.date.formatted(date: .omitted, time: .shortened))"
+
+    // MARK: - View Elements
 
     private lazy var saveButton: UIBarButtonItem = {
         let button = UIBarButtonItem()
@@ -122,31 +121,8 @@ class HabitViewController: UIViewController {
         return contentView
     } ()
 
-    let elementSize: CGFloat = 30
-
-    private let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ru-RU")
-        formatter.timeStyle = .short
-        return formatter
-    } ()
-
-    private lazy var timeString: String = "Каждый день в \(timePicker.date.formatted(date: .omitted, time: .shortened))"
-
+    // MARK: - Methods
     
-
-    //===============================METHODS==================================//
-    /*
-     1. override func viewDidLoad()
-     2. override func viewDidAppear(_ animated: Bool)
-     3. private func setupView()
-     4. private func setConstraints()
-     5. private func addElements()
-     6. private func setupNavBar()
-     7. @objc func formatTime()
-     8. @objc func labelTimeSet()
-     9. @objc func saveHabit()
-     */
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -269,7 +245,7 @@ class HabitViewController: UIViewController {
     @objc func saveHabit(_ sender: UIBarButtonItem) {
         var nameExists: Bool = false
         if let name: String = habitNameTextField.text {
-            if name != "" {
+            if !name.isEmpty {
                 nameExists = true
                 if let color = colorWell.selectedColor {
                     let store = HabitsStore.shared
@@ -278,10 +254,8 @@ class HabitViewController: UIViewController {
                         let newHabit = Habit(name: name, date: timePicker.date, color: color)
                         store.habits.append(newHabit)
                     } else {
-                        HabitsStore.shared.habits[habitID].name.removeAll(keepingCapacity: true)
-                        HabitsStore.shared.habits[habitID].name = name
-                        HabitsStore.shared.habits[habitID].color = color
-                        HabitsStore.shared.habits[habitID].date = timePicker.date
+                        let data = HabitsStore.HabitData(name: name, color: color, date: timePicker.date)
+                        HabitsStore.shared.updateHabit(for: habitID, using: data)
                     }
 
                     let habitsViewController = HabitsViewController()
@@ -291,17 +265,9 @@ class HabitViewController: UIViewController {
             }
         }
 
-        if nameExists == false {
+        if !nameExists {
             print("Введите название привычки")
         }
-    }
-
-    func editHabit(name: String, color: UIColor, date: Date) {
-        setupView()
-
-        habitNameTextField.text = name
-        colorWell.selectedColor = color
-        timePicker.date = date
     }
 
 }

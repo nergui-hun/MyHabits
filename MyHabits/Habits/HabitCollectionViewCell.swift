@@ -10,16 +10,11 @@ import UIKit
 
 class HabitCollectionViewCell: UICollectionViewCell {
 
+    // MARK: - Delegates
+
     weak var habitDelegate: HabitDelegate?
 
-    //==========================PROPERTIES=================================//
-    /*
-     1. private let habitView: UIView
-     2. private let habitNameLabel: UILabel
-     3. private let habitTimeLabel: UILabel
-     4. private let counterLabel: UILabel
-     5. let checkBoxButton: UIButton
-     */
+    // MARK: - View Elements
     
     private let habitView: UIView = {
         let habitView = UIView()
@@ -65,7 +60,8 @@ class HabitCollectionViewCell: UICollectionViewCell {
 
     private var habit: [Habit] = []
 
-    //===========================INITIALIZERS=================================//
+    // MARK: - Initializers
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addElements()
@@ -77,15 +73,8 @@ class HabitCollectionViewCell: UICollectionViewCell {
     }
 
 
-    //===========================METHODS=================================//
-    /*
-     1. private func addElements()
-     2. private func setConstraints()
-     3. func setup(id: Int)
-     4. private func checkBoxImage(isTaken: Bool)
-     5. @objc func markHabit(sender: UIButton!)
-     6. override func prepareForReuse()
-     */
+    // MARK: - Methods
+    
     private func addElements() {
         self.contentView.addSubview(habitView)
         habitView.addSubview(habitNameLabel)
@@ -133,7 +122,7 @@ class HabitCollectionViewCell: UICollectionViewCell {
     }
 
     private func checkBoxImage(isTaken: Bool) {
-        if isTaken == true {
+        if isTaken {
             checkBoxButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
         } else {
             checkBoxButton.setImage(UIImage(systemName: "circle"), for: .normal)
@@ -144,7 +133,6 @@ class HabitCollectionViewCell: UICollectionViewCell {
         if sender.image(for: .normal) == UIImage(systemName: "circle") {
             sender.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
             HabitsStore.shared.track(HabitsStore.shared.habits[sender.tag])
-
 
             habitDelegate?.updateData()
         }

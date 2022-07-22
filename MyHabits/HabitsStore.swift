@@ -106,6 +106,26 @@ public final class HabitsStore {
         }
     }
 
+    struct HabitData {
+        let name: String
+        let color: UIColor
+        let date: Date
+
+        public init(name: String, color: UIColor, date: Date) {
+            self.name = name
+            self.color = color
+            self.date = date
+        }
+    }
+
+    func updateHabit(for id: Int, using data: HabitData) {
+        let habit = habits[id]
+        habit.name.removeAll(keepingCapacity: true)
+        habit.name = data.name
+        habit.color = data.color
+        habit.date = data.date
+    }
+
     /// Даты с момента установки приложения с разницей в один день.
     public var dates: [Date] {
         guard let startDate = userDefaults.object(forKey: "start_date") as? Date else {

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+    // MARK: - Protocols
 
 protocol HabitDelegate: AnyObject {
     func updateData()
@@ -18,16 +19,8 @@ protocol HabitDelegate: AnyObject {
 
 class HabitsViewController: UIViewController {
 
-    //=============================PROPERTIES=================================//
-    /*
-     1. private lazy var collectionView: UICollectionView
-     2. let layout: UICollectionViewFlowLayout
-     3. private lazy var addButton: UIBarButtonItem
-     5. var dataSource: [Habit] = []
-     6. private let habitCollectionViewCell = HabitCollectionViewCell()
-     7. private let progressCollectionViewCell = ProgressCollectionViewCell()
-     8. let markButtonTap = UITapGestureRecognizer()
-     */
+    // MARK: - View Elements
+    
     private lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.backgroundColor = UIColor(named: "ghostWhite")
@@ -71,17 +64,8 @@ class HabitsViewController: UIViewController {
 
 
 
-    //===============================METHODS==================================//
-    /*
-     1. override func viewDidLoad()
-     2. override func viewWillAppear(_ animated: Bool)
-     3. private func setupView()
-     4. private func addElements()
-     5. private func setConstraints()
-     6. private func setupNavBar()
-     7. @objc private func addHabit(_ sender: UIBarButtonItem!)
-     8. private func itemSize(for width: CGFloat, with spacing: CGFloat, section: Int) -> CGSize
-     */
+    // MARK: - Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -140,7 +124,8 @@ class HabitsViewController: UIViewController {
 }
 
 
-//================================EXTENSIONS==================================//
+// MARK: - Extensions
+
 extension HabitsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int { 2 }

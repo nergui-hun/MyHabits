@@ -10,7 +10,12 @@ import UIKit
 
 class InfoViewController: UIViewController {
 
-    //=============================PROPERTIES=================================//
+    // MARK: - Variables
+    lazy var contentViewSize = CGSize(width: self.view.bounds.width, height: self.view.bounds.height)
+
+    
+    // MARK: - View Elements
+
     private let infoHeaderLabel: UILabel = {
         let label = UILabel()
         label.text = StringsRU.infoHeaderRU.rawValue
@@ -40,9 +45,9 @@ class InfoViewController: UIViewController {
         return scroll
     }()
 
-    lazy var contentViewSize = CGSize(width: self.view.bounds.width, height: self.view.bounds.height)
 
-    //===============================METHODS==================================//
+    // MARK: - Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()

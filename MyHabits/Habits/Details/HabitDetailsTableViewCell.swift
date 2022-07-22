@@ -10,7 +10,8 @@ import UIKit
 
 class HabitDetailsTableViewCell: UITableViewCell {
 
-    //=============================PROPERTIES=================================//
+    // MARK: - View Elements
+
     let datesLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -25,7 +26,8 @@ class HabitDetailsTableViewCell: UITableViewCell {
     } ()
 
 
-    //===========================INITIALIZERS=================================//
+    // MARK: - Initializers
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubviews()
@@ -36,7 +38,8 @@ class HabitDetailsTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    //===============================METHODS==================================//
+    // MARK: - Methods
+    
     private func addSubviews() {
         addSubview(datesLabel)
         addSubview(isTrackedLabel)

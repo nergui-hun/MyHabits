@@ -10,13 +10,8 @@ import UIKit
 
 class ProgressCollectionViewCell: UICollectionViewCell {
 
-    //==========================PROPERTIES=================================//
-    /*
-     1. private let progressView: UIView
-     2. private let progressLabel: UILabel
-     3. let percentageLabel: UILabel
-     4. private let progressBar: UIProgressView
-     */
+    // MARK: - View Elements
+    
     private let progressView: UIView = {
         let progressView = UIView()
         progressView.backgroundColor = .white
@@ -53,7 +48,8 @@ class ProgressCollectionViewCell: UICollectionViewCell {
     } ()
     
 
-    //===========================INITIALIZERS=================================//
+    // MARK: - Initializers
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         addElements()
@@ -65,13 +61,8 @@ class ProgressCollectionViewCell: UICollectionViewCell {
     }
 
 
-    //===========================METHODS=================================//
-    /*
-     1. private func addElements()
-     2. private func setConstraints()
-     3. func setup()
-     4. override func prepareForReuse()
-     */
+    // MARK: - Methods
+    
     private func addElements() {
         self.contentView.addSubview(progressView)
         progressView.addSubview(progressLabel)
@@ -101,13 +92,12 @@ class ProgressCollectionViewCell: UICollectionViewCell {
         ])
     }
 
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-
     func setup() {
         percentageLabel.text = "\(Int(HabitsStore.shared.todayProgress * 100)) %"
         progressBar.progress = HabitsStore.shared.todayProgress
     }
-    
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
 }
